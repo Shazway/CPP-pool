@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 23:34:37 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/08/28 23:36:27 by tmoragli         ###   ########.fr       */
+/*   Updated: 2022/08/29 01:46:09 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 int	main()
 {
+	PhoneBook book;
 	std::string line;
-	
+
+	while (std::cin)
+	{
+
+	}
 }

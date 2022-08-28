@@ -12,7 +12,7 @@ class Contact
 	std::string darkest_secret;
 };
 
-class Phonebook
+class PhoneBook
 {
 	private:
 	int		index;
