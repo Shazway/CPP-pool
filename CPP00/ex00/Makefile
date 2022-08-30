@@ -10,7 +10,8 @@ CPPFLAGS	=	c++ -Wall -Wextra -Werror -std=c++98 -MMD
 all: $(NAME)
 	
 $(NAME): $(OBJ)
-	$(CPPFLAGS) -o $(NAME) $(OBJ) -include $(DEP)
+	$(CPPFLAGS) -o $(NAME) $(OBJ)
+-include $(DEP)
 %.o:%.cpp
 	$(CPPFLAGS) -o $@ -c $<
 

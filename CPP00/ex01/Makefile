@@ -1,25 +1,36 @@
 NAME	=	phonebook
 
-SRCS	=	main.cpp
+CC	=	c++
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 
-OBJ		=	$(SRCS:.cpp=.o)
-DEP		=	$(SRCS:.cpp=.d)
+SRC_PATH	=	srcs/
+OBJ_PATH	=	obj/
+INC	=	-Iincludes
 
-CPPFLAGS	=	c++ -Wall -Wextra -Werror -std=c++98 -MMD -I./
+SRC_NAME	=	Contact.cpp main.cpp PhoneBook.cpp
+OBJ_NAME	=	$(SRC_NAME:.cpp=.o)
+
+OBJ	=	$(addprefix $(OBJ_PATH), $(OBJ_NAME))
+SRC	=	$(addprefix $(SRC_PATH), $(SRC_NAME))
+
+
+$(NAME):	$(OBJ)
+	$(CC) $(FLAGS) $(INC) $(OBJ) -o $(NAME)
+
+$(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
+	mkdir -p $(@D)
+	$(CC) $(FLAGS) $(INC) -MMD -c $< -o $@
+
+-include $(OBJ:%.o=%.d)
 
 all: $(NAME)
-	
-$(NAME): $(OBJ)
-	$(CPPFLAGS) -o $(NAME) $(OBJ) -include $(DEP)
-%.o:%.cpp
-	$(CPPFLAGS) -o $@ -c $<
 
 clean:
-	rm -rf $(OBJ) $(DEP)
+	rm -rf $(OBJ_PATH)
 
 fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
 
-.PHONY: re all clean fclean
+.PHONY: all clean fclean re
