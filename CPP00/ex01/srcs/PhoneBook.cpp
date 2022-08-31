@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 12:40:04 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/08/30 19:20:49 by tmoragli         ###   ########.fr       */
+/*   Updated: 2022/08/31 01:41:50 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,30 +38,23 @@ void	PhoneBook::display_phonebook()
 {
 	std::string temp;
 
-	try
+	for (int i = 0; i < nb_contacts; i++)
 	{
-		for (int i = 0; i < nb_contacts; i++)
+		temp.clear();
+		std::cout << temp.insert(0, 9, ' ') << i << '|';
+		for (int j = 0; j < 3; j++)
 		{
-			temp.clear();
-			std::cout << temp.insert(0, 9, ' ') << i << '|';
-			for (int j = 0; j < 3; j++)
+			temp = contacts[i].get_entry(j);
+			if (temp.size() > 9)
+				std::cout << temp.substr(0, 9) << '.' << '|';
+			else
 			{
-				temp = contacts[i].get_entry(j);
-				if (temp.size() > 9)
-					std::cout << temp.substr(0, 9) << '.' << '|';
-				else
-				{
-					temp.insert(0, 10 - temp.size(), ' ');
-					std::cout << temp << '|';
-				}
+				temp.insert(0, 10 - temp.size(), ' ');
+				std::cout << temp << '|';
 			}
-			if (i < nb_contacts)
-				std::cout << std::endl;
 		}
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << nb_contacts << "\n";
+		if (i < nb_contacts)
+			std::cout << std::endl;
 	}
 	display_contact();
 }
