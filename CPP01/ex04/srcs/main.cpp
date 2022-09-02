@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:37:21 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/08/31 17:21:46 by tmoragli         ###   ########.fr       */
+/*   Updated: 2022/09/02 22:26:07 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int	main(int ac, char **av)
 	std::string		filename(av[1]);
 	filename += ".replace";
 	file.open(av[1], std::ios_base::in);
-	if (!file.is_open())
+	if (!file.is_open() || file.peek() == std::ifstream::traits_type::eof())
 	{
-		std::cout << "Failed to open given file" << std::endl;
+		std::cout << "Failed to open given file: " << av[1] << std::endl;
 		return (1);
 	}
 	new_file.open(filename.c_str(), std::ios::app);
