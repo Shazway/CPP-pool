@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/03 17:03:34 by tmoragli          #+#    #+#             */
+/*   Updated: 2022/09/03 20:48:22 by tmoragli         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
 # include <iostream>
 # include <string>
-#include <cmath>
+# include <cmath>
 
 class Fixed
 {

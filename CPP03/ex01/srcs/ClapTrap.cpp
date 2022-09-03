@@ -1,35 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/03 17:16:13 by tmoragli          #+#    #+#             */
+/*   Updated: 2022/09/03 20:58:52 by tmoragli         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap(): _Name("Unknown foe")
 {
-	this->_Name = "Unknown foe";
 	_HitPoints = 10;
 	_EnergyPoints = 10;
 	_AttackDamage = 0;
 	std::cout << "\e[1;32mUnknown ClapTrap created\e[0m" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(std::string name): _Name(name)
 {
-	this->_Name = name;
 	_HitPoints = 10;
 	_EnergyPoints = 10;
 	_AttackDamage = 0;
 	std::cout << "\e[1;32mClapTrap: "<< this->_Name << " created\e[0m" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &copy)
+ClapTrap::ClapTrap(const ClapTrap &copy): _Name(copy.getName())
 {
-	_Name = copy.getName();
-	_HitPoints = copy.getHitPoints();
 	_EnergyPoints = copy.getEnergyPoints();
 	_AttackDamage = copy.getAttackDamage();
 	std::cout << "\e[1;32mClapTrap clone created from " << this->_Name <<"\e[0m" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string Name, int HitPoints, int EnergyPoints, int AttackDamage)
+ClapTrap::ClapTrap(std::string Name, int HitPoints, int EnergyPoints, int AttackDamage): _Name(Name)
 {
-	_Name = Name;
 	_HitPoints = HitPoints;
 	_EnergyPoints = EnergyPoints;
 	_AttackDamage = AttackDamage;
@@ -44,7 +51,6 @@ ClapTrap::~ClapTrap()
 
 ClapTrap & ClapTrap::operator=(const ClapTrap &assign)
 {
-	_Name = assign.getName();
 	_HitPoints = assign.getHitPoints();
 	_EnergyPoints = assign.getEnergyPoints();
 	_AttackDamage = assign.getAttackDamage();
@@ -87,10 +93,10 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
+	if (this->_EnergyPoints == 0)
+		std::cout << "\e[1;33mNo energy left for " << this->_Name << " can't repair \e[0m" << std::endl;
 	if (this->_HitPoints == 0)
 		std::cout << "\e[1;31m" << this->_Name << " is dead, can't repair\e[0m" << std::endl;
-	else if (this->_EnergyPoints == 0)
-		std::cout << "\e[1;33mNo energy left for " << this->_Name << " can't repair \e[0m" << std::endl;
 	if (this->_EnergyPoints > 0 && this->_HitPoints > 0)
 	{
 		this->_EnergyPoints--;
@@ -104,9 +110,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (this->_HitPoints == 0)
-		std::cout << "\e[1;33m" << this->_Name << " is dead... can't attack " << target << "\e[0m" << std::endl;
-	else if (this->_EnergyPoints == 0)
+	if (this->_EnergyPoints == 0)
 		std::cout << "\e[1;33m" << this->_Name << " has no energy to attack " << target << "\e[0m" << std::endl;
 	if (this->_EnergyPoints > 0 && this->_HitPoints > 0)
 	{
@@ -116,5 +120,7 @@ void	ClapTrap::attack(const std::string& target)
 		if (this->_EnergyPoints == 0)
 			std::cout << "\e[1;33m" << this->_Name << " won't be able to attack next time, they should rest\e[0m" << std::endl;
 	}
+	if (this->_HitPoints == 0)
+		std::cout << this->_Name << " is dead... can't attack " << target << std::endl;
 	return ;
 }
