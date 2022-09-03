@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 15:39:43 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/03 21:54:42 by tmoragli         ###   ########.fr       */
+/*   Updated: 2022/09/03 22:00:41 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(void)
 	std::cout << b << std::endl;
 	if (a < b)
 		std::cout << "a: " << a << " is smaller than b: " << b << std::endl;
-	else
+	else if (a > b)
 		std::cout << "a: " << a << "is bigger than b: " << b << std::endl;
 	std::cout << "Before increment, a is:	" << a << std::endl;
 	a++;

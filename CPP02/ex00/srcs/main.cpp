@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 15:39:43 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/03 21:43:09 by tmoragli         ###   ########.fr       */
+/*   Updated: 2022/09/03 21:59:02 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int	main(void)
 	std::cout << c.getRawBits() << std::endl;
 	c.setRawBits(80);
 	std::cout << c.getRawBits() << std::endl;
+	a = c;
+	std::cout << a.getRawBits() << std::endl;
 	return (0);
 }
