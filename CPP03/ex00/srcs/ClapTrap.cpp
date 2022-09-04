@@ -110,7 +110,7 @@ void	ClapTrap::attack(const std::string& target)
 		std::cout << "\e[1;33m" << this->_Name << " has no energy to attack " << target << "\e[0m" << std::endl;
 	if (this->_EnergyPoints > 0 && this->_HitPoints > 0)
 	{
-		std::cout << "\e[1;31m"<< this->_Name << " attacks " << target << " for " 
+		std::cout << "\e[1;31m"<< this->_Name << " attacks " << target << " for "
 				<< this->_AttackDamage << " attack damage\e[0m" << std::endl;
 		this->_EnergyPoints--;
 		if (this->_EnergyPoints == 0)
