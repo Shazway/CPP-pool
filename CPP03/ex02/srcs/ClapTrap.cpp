@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:16:13 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/03 20:58:52 by tmoragli         ###   ########.fr       */
+/*   Updated: 2022/09/04 19:23:37 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ClapTrap::ClapTrap(): _Name("Unknown foe")
 	_HitPoints = 10;
 	_EnergyPoints = 10;
 	_AttackDamage = 0;
-	std::cout << "\e[1;32mUnknown ClapTrap created\e[0m" << std::endl;
+	std::cout << "\e[1;32mClapTrap created\e[0m" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name): _Name(name)

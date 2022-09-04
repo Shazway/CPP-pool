@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:26:11 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/03 21:39:39 by tmoragli         ###   ########.fr       */
+/*   Updated: 2022/09/04 19:31:14 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@ ScavTrap::ScavTrap(): ClapTrap("Unknown guardian foe")
 	this->_EnergyPoints = 50;
 	this->_AttackDamage = 20;
 	std::cout << "An unknown guardian foe just spawned" << std::endl;
+}
+
+ScavTrap::ScavTrap(std::string Name, int HitPoints, int EnergyPoints, int AttackDamage)
+{
+	this->_Name = Name;
+	this->_HitPoints = HitPoints;
+	this->_EnergyPoints = EnergyPoints;
+	this->_AttackDamage = AttackDamage;
+	std::cout << "\e[1;32mCustom ScavTrap created: " << this->_Name <<"\e[0m" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)

@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:16:33 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/03 20:54:59 by tmoragli         ###   ########.fr       */
+/*   Updated: 2022/09/04 19:29:53 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ public:
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 protected:
-	const std::string _Name;
+	std::string _Name;
 	int _HitPoints;
 	int _EnergyPoints;
 	int _AttackDamage;
