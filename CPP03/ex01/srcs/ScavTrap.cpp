@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:26:11 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/04 19:31:14 by tmoragli         ###   ########.fr       */
+/*   Updated: 2022/09/04 19:45:44 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ ScavTrap::ScavTrap(const ScavTrap &copy): ClapTrap(copy.getName())
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "\e[1;32m"<< this->_Name << " isn't feeling well, his end is near. . .\e[0m" << std::endl;
+	std::cout << "\e[1;32m"<< this->_Name << " isn't feeling well, their end is near. . .\e[0m" << std::endl;
 }
 
 void	ScavTrap::attack(std::string const& target)

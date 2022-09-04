@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:16:13 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/03 20:58:52 by tmoragli         ###   ########.fr       */
+/*   Updated: 2022/09/04 19:40:51 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,10 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->_EnergyPoints == 0)
-		std::cout << "\e[1;33mNo energy left for " << this->_Name << " can't repair \e[0m" << std::endl;
 	if (this->_HitPoints == 0)
 		std::cout << "\e[1;31m" << this->_Name << " is dead, can't repair\e[0m" << std::endl;
+	else if (this->_EnergyPoints == 0)
+		std::cout << "\e[1;33mNo energy left for " << this->_Name << " can't repair \e[0m" << std::endl;
 	if (this->_EnergyPoints > 0 && this->_HitPoints > 0)
 	{
 		this->_EnergyPoints--;
@@ -110,7 +110,9 @@ void	ClapTrap::beRepaired(unsigned int amount)
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (this->_EnergyPoints == 0)
+	if (this->_HitPoints == 0)
+		std::cout << this->_Name << " is dead... can't attack " << target << std::endl;
+	else if (this->_EnergyPoints == 0)
 		std::cout << "\e[1;33m" << this->_Name << " has no energy to attack " << target << "\e[0m" << std::endl;
 	if (this->_EnergyPoints > 0 && this->_HitPoints > 0)
 	{
@@ -120,7 +122,5 @@ void	ClapTrap::attack(const std::string& target)
 		if (this->_EnergyPoints == 0)
 			std::cout << "\e[1;33m" << this->_Name << " won't be able to attack next time, they should rest\e[0m" << std::endl;
 	}
-	if (this->_HitPoints == 0)
-		std::cout << this->_Name << " is dead... can't attack " << target << std::endl;
 	return ;
 }
