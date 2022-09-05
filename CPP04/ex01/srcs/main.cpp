@@ -6,77 +6,67 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 21:52:29 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/05 15:33:45 by tmoragli         ###   ########.fr       */
+/*   Updated: 2022/09/05 17:40:50 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
-#include "WrongDog.hpp"
+#include "Brain.hpp"
 
 void	print_separator(void)
 {
 	std::cout << "\e[1;37m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\e[0m" << std::endl;
 }
 
-void	wrong_animals(void)
-{
-	const WrongAnimal* meta = new WrongAnimal();
-	const WrongAnimal* j = new WrongDog();
-	const WrongAnimal* i = new WrongCat();
-
-	print_separator();
-	std::cout << "\e[1;34m" << j->getType() << " \e[0m" << std::endl;
-	std::cout << "\e[1;34m" << i->getType() << " \e[0m" << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-	print_separator();
-	delete	j;
-	delete	i;
-	delete	meta;
-	print_separator();
-}
-
-void	animals_gang(void)
-{
-	const Animal*	catGang = new Cat[5];
-	const Animal*	dogGang = new Dog[5];
-	print_separator();
-
-	for (int i = 0; i < 5; i++)
-	{
-		catGang[i].makeSound();
-		dogGang[i].makeSound();
+int	main(void) {
+	std::cout << "-----Constructors :-----" << std::endl << std::endl;
+// Subject
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	Animal*	zoo[4];
+	for (int i = 0; i < 4; i++) {
+		if (i < 2)
+			zoo[i] = new Dog();
+		else
+			zoo[i] = new Cat();
 	}
-	print_separator();
-	delete[] catGang;
-	delete[] dogGang;
-}
-
-int	main(void)
-{
-	const Animal*	meta = new Animal();
-	const Animal*	j = new Dog();
-	const Animal*	i = new Cat();
-
-
-	print_separator();
-	std::cout << "\e[1;34m" << j->getType() << " \e[0m" << std::endl;
-	std::cout << "\e[1;34m" << i->getType() << " \e[0m" << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-	print_separator();
-	delete	j;
-	delete	i;
-	delete	meta;
-	print_separator();
-	wrong_animals();
-	animals_gang();
-	print_separator();
-	return 0;
+// Animal instance
+	Animal	a;
+// Dog instances
+	Dog	d1;
+	Dog	d2;
+	d1.setIdea(0, "I want to eat meat");
+	d2 = d1;
+	Dog	d3(d1);
+// Cat instances
+	Cat	c1;
+	Cat	c2;
+	c1.setIdea(0, "I want kill my human");
+	c2 = c1;
+	Cat	c3(c1);
+	std::cout << std::endl << "-----My tests :-----" << std::endl << std::endl;
+// Animal test
+	std::cout << "Animal try to set idea and get idea" << std::endl;
+	a.setIdea(0, "test");
+	a.getIdea(0);
+// Dog tests
+	d1.setIdea(0, "I want to get fresh air");
+	std::cout << std::endl << "Dog check setIdea / getIdea and deep copy" << std::endl;
+	std::cout << "---> d1 idea(0) = " << d1.getIdea(0) << std::endl;
+	std::cout << "---> d2 idea(0) = " << d2.getIdea(0) << std::endl;
+	std::cout << "---> d3 idea(0) = " << d3.getIdea(0) << std::endl;
+// Cat tests
+	c1.setIdea(0, "Sleep is better");
+	std::cout << std::endl << "Cat check setIdea / getIdea and deep copy" << std::endl;
+	std::cout << "---> c1 idea(0) = " << c1.getIdea(0) << std::endl;
+	std::cout << "---> c2 idea(0) = " << c2.getIdea(0) << std::endl;
+	std::cout << "---> c3 idea(0) = " << c3.getIdea(0) << std::endl;
+	std::cout << std::endl << "-----Destructors :-----" << std::endl << std::endl;
+	for (int i = 0; i < 4; i++)
+		delete zoo[i];
+	delete j;
+	delete i;
+	return (0);
 }

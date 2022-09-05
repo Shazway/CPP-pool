@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 21:30:54 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/05 18:04:41 by tmoragli         ###   ########.fr       */
+/*   Created: 2022/09/05 15:40:42 by tmoragli          #+#    #+#             */
+/*   Updated: 2022/09/05 17:56:46 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
 # include <string>
 
-class Animal
+class Brain
 {
 public:
-	Animal();
-	Animal(const Animal &copy);
-	Animal(std::string name);
-	virtual ~Animal();
-	Animal & operator=(const Animal &assign);
-	std::string getType() const;
-	virtual	std::string getIdea(int index) const;
-	virtual	void setIdea(int index, std::string idea);
-	virtual void makeSound() const;
-protected:
-	std::string _type;
+	Brain();
+	Brain(const Brain &copy);
+	~Brain();
+	Brain & operator=(const Brain &assign);
+	std::string	getIdea(int index) const;
+	void		setIdea(int index, std::string idea);
+private:
+	std::string _ideas[100];
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 21:30:48 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/04 22:48:54 by tmoragli         ###   ########.fr       */
+/*   Updated: 2022/09/05 18:06:18 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,19 @@ Animal & Animal::operator=(const Animal &assign)
 std::string Animal::getType() const
 {
 	return _type;
+}
+
+void Animal::setIdea(int index, std::string idea)
+{
+	std::cout << "\e[1;33mAnimals can't set an idea\e[0m" << std::endl;
+	(void)index;
+	(void)idea;
+}
+std::string Animal::getIdea(int index) const
+{
+	(void)index;
+	std::cout << "\e[1;33mNo ideas for Animal\e[0m" << std::endl;
+	return " ";
 }
 
 void Animal::makeSound() const
