@@ -1,4 +1,4 @@
-NAME	=	TaleofClapTrap
+NAME	=	Animals
 
 CC	=	c++
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g3
@@ -7,7 +7,7 @@ SRC_PATH	=	srcs/
 OBJ_PATH	=	obj/
 INC			=	-Iincludes
 
-SRC_NAME	=	main.cpp ClapTrap.cpp
+SRC_NAME	=	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongDog.cpp WrongCat.cpp WrongAnimal.cpp
 OBJ_NAME	=	$(SRC_NAME:.cpp=.o)
 
 OBJ	=	$(addprefix $(OBJ_PATH), $(OBJ_NAME))
