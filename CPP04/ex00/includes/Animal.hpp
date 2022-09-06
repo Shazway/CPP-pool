@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 21:30:54 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/05 17:42:30 by tmoragli         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:56:22 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ public:
 	Animal & operator=(const Animal &assign);
 	std::string getType() const;
 	virtual void makeSound() const;
-	virtual	std::string getIdea();
-	virtual	void setIdea();
+	virtual	std::string getIdea( int index) const;
+	virtual	void setIdea(int index, std::string idea);
 protected:
 	std::string _type;
 };

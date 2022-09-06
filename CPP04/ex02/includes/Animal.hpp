@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 22:37:34 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/06 15:41:58 by tmoragli         ###   ########.fr       */
+/*   Created: 2022/09/04 21:30:54 by tmoragli          #+#    #+#             */
+/*   Updated: 2022/09/06 15:26:04 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+# include <iostream>
+# include <string>
 
-class Dog: public Animal
+class Animal
 {
 public:
-	Dog();
-	Dog(const Dog &copy);
-	virtual ~Dog();
-	void		makeSound(void) const;
-	void		setIdea(int index, std::string idea);
-	std::string	getIdea(int index) const;
-	Brain		*getBrain()	const;
-	Dog & operator=(const Dog &assign);
-private:
-	Brain	*_dogBrain;
+	Animal();
+	Animal(const Animal &copy);
+	Animal(std::string name);
+	virtual ~Animal();
+	Animal & operator=(const Animal &assign);
+	std::string getType() const;
+	virtual	std::string getIdea(int index) const = 0;
+	virtual	void setIdea(int index, std::string idea) = 0;
+	virtual void makeSound() const = 0;
+protected:
+	std::string _type;
 };
 
 #endif

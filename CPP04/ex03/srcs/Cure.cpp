@@ -1,37 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 21:35:10 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/06 15:04:14 by tmoragli         ###   ########.fr       */
+/*   Created: 2022/09/06 17:40:20 by tmoragli          #+#    #+#             */
+/*   Updated: 2022/09/06 22:17:43 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cure.hpp"
 
-Dog::Dog() : Animal()
+Cure::Cure(): AMateria("cure")
 {
-	this->_type = "Dog";
-	std::cout << "\e[1;32mA Dog has just spawned\e[0m" << std::endl;
 	return ;
 }
 
-Dog::Dog(const Dog &copy)
+Cure::Cure(Cure const& copy): AMateria("cure")
 {
-	_type = copy.getType();
-	std::cout << "\e[1;32mA Dog clone has just spawned\e[0m" << std::endl;
+	(void)copy;
 	return ;
 }
 
-Dog::~Dog()
+Cure::~Cure()
 {
-	std::cout << "\e[1;32mDog despawned\e[0m" << std::endl;
+	return ;
 }
 
-void Dog::makeSound() const
+Cure& Cure::operator=(Cure const & assign){
+	(void)assign;
+	return *this;
+}
+
+AMateria*	Cure::clone(void) const
 {
-	std::cout << "\e[1;33mWoof !\e[0m" << std::endl;
+	return (new Cure());
+}
+
+void	Cure::use(ICharacter& target)
+{
+	std::cout << "\e[1;35m* heals " << target.getName() << "'s wounds *\e[1;0m" << std::endl;
 }

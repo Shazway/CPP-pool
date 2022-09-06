@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 21:52:29 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/05 15:33:45 by tmoragli         ###   ########.fr       */
+/*   Updated: 2022/09/06 15:13:16 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,6 @@ void	wrong_animals(void)
 	print_separator();
 }
 
-void	animals_gang(void)
-{
-	const Animal*	catGang = new Cat[5];
-	const Animal*	dogGang = new Dog[5];
-	print_separator();
-
-	for (int i = 0; i < 5; i++)
-	{
-		catGang[i].makeSound();
-		dogGang[i].makeSound();
-	}
-	print_separator();
-	delete[] catGang;
-	delete[] dogGang;
-}
-
 int	main(void)
 {
 	const Animal*	meta = new Animal();
@@ -76,7 +60,5 @@ int	main(void)
 	delete	meta;
 	print_separator();
 	wrong_animals();
-	animals_gang();
-	print_separator();
 	return 0;
 }

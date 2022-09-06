@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 22:37:34 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/06 15:41:58 by tmoragli         ###   ########.fr       */
+/*   Created: 2022/09/06 16:39:15 by tmoragli          #+#    #+#             */
+/*   Updated: 2022/09/06 17:48:08 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
+#include "AMateria.hpp"
 
-#include "Animal.hpp"
-#include "Brain.hpp"
-
-class Dog: public Animal
+class Ice : public AMateria
 {
 public:
-	Dog();
-	Dog(const Dog &copy);
-	virtual ~Dog();
-	void		makeSound(void) const;
-	void		setIdea(int index, std::string idea);
-	std::string	getIdea(int index) const;
-	Brain		*getBrain()	const;
-	Dog & operator=(const Dog &assign);
-private:
-	Brain	*_dogBrain;
+	Ice();
+	Ice(std::string type);
+	Ice(Ice const & ice);
+	virtual ~Ice();
+	Ice& operator=(Ice const& assign);
+	virtual AMateria*	clone(void) const;
+	virtual void use(ICharacter& target);
 };
-
 #endif

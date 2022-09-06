@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Colors.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 22:37:34 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/06 15:41:58 by tmoragli         ###   ########.fr       */
+/*   Created: 2022/09/06 18:12:17 by tmoragli          #+#    #+#             */
+/*   Updated: 2022/09/06 18:16:27 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef COLORS_HPP
+#define COLORS_HPP
+#include <iostream>
 
-#include "Animal.hpp"
-#include "Brain.hpp"
-
-class Dog: public Animal
-{
-public:
-	Dog();
-	Dog(const Dog &copy);
-	virtual ~Dog();
-	void		makeSound(void) const;
-	void		setIdea(int index, std::string idea);
-	std::string	getIdea(int index) const;
-	Brain		*getBrain()	const;
-	Dog & operator=(const Dog &assign);
-private:
-	Brain	*_dogBrain;
-};
-
+#define BLACK "\e[1;30m"
+#define RED "\e[1;31m"
+#define GREEN "\e[1;32m"
+#define YELLOW "\e[1;33m"
+#define BLUE "\e[1;34m"
+#define MAGENTA "\e[1;35m"
+#define CYAN "\e[1;36m"
+#define WHITE "\e[1;37m"
+#define END "\e[0m"
 #endif

@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongDog.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 22:37:34 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/06 15:41:58 by tmoragli         ###   ########.fr       */
+/*   Created: 2022/09/05 15:12:25 by tmoragli          #+#    #+#             */
+/*   Updated: 2022/09/06 15:39:25 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONGDOG_HPP
+# define WRONGDOG_HPP
+#include "WrongAnimal.hpp"
 
-#include "Animal.hpp"
-#include "Brain.hpp"
-
-class Dog: public Animal
+class WrongDog: public WrongAnimal
 {
 public:
-	Dog();
-	Dog(const Dog &copy);
-	virtual ~Dog();
-	void		makeSound(void) const;
-	void		setIdea(int index, std::string idea);
-	std::string	getIdea(int index) const;
-	Brain		*getBrain()	const;
-	Dog & operator=(const Dog &assign);
-private:
-	Brain	*_dogBrain;
+	WrongDog();
+	WrongDog(const WrongDog &copy);
+	~WrongDog();
+	void	makeSound(void) const;
+	WrongDog & operator=(const WrongDog &assign);
 };
-
 #endif

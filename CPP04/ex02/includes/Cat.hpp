@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 22:37:34 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/06 15:41:58 by tmoragli         ###   ########.fr       */
+/*   Created: 2022/09/04 21:32:14 by tmoragli          #+#    #+#             */
+/*   Updated: 2022/09/05 18:03:42 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Dog: public Animal
+class Cat: public Animal
 {
 public:
-	Dog();
-	Dog(const Dog &copy);
-	virtual ~Dog();
+	Cat();
+	Cat(const Cat &copy);
+	virtual ~Cat();
 	void		makeSound(void) const;
-	void		setIdea(int index, std::string idea);
 	std::string	getIdea(int index) const;
+	void		setIdea(int index, std::string idea);
 	Brain		*getBrain()	const;
-	Dog & operator=(const Dog &assign);
+	Cat & operator=(const Cat &assign);
 private:
-	Brain	*_dogBrain;
+	Brain	*_catBrain;
 };
 
 #endif

@@ -1,37 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 21:35:10 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/06 15:04:14 by tmoragli         ###   ########.fr       */
+/*   Created: 2022/09/06 16:05:10 by tmoragli          #+#    #+#             */
+/*   Updated: 2022/09/06 22:04:48 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "AMateria.hpp"
 
-Dog::Dog() : Animal()
-{
-	this->_type = "Dog";
-	std::cout << "\e[1;32mA Dog has just spawned\e[0m" << std::endl;
+AMateria::AMateria(){
 	return ;
 }
 
-Dog::Dog(const Dog &copy)
+AMateria::AMateria(std::string const& type): _type(type)
 {
-	_type = copy.getType();
-	std::cout << "\e[1;32mA Dog clone has just spawned\e[0m" << std::endl;
 	return ;
 }
 
-Dog::~Dog()
+AMateria::AMateria(AMateria const& copy)
 {
-	std::cout << "\e[1;32mDog despawned\e[0m" << std::endl;
+	*this = copy;
+	return ;
 }
 
-void Dog::makeSound() const
+AMateria::~AMateria(){
+	return ;
+}
+
+AMateria&	AMateria::operator=(AMateria const& assign)
 {
-	std::cout << "\e[1;33mWoof !\e[0m" << std::endl;
+	(void)assign;
+	return (*this);
+}
+
+std::string	const& AMateria::getType() const
+{
+	return (_type);
+}
+void	AMateria::use(ICharacter& target)
+{
+	(void)target;
+	return ;
 }

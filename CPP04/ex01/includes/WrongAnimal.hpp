@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 22:37:34 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/06 15:41:58 by tmoragli         ###   ########.fr       */
+/*   Created: 2022/09/05 15:06:38 by tmoragli          #+#    #+#             */
+/*   Updated: 2022/09/06 15:39:15 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
+# include <iostream>
+# include <string>
 
-#include "Animal.hpp"
-#include "Brain.hpp"
-
-class Dog: public Animal
+class WrongAnimal
 {
 public:
-	Dog();
-	Dog(const Dog &copy);
-	virtual ~Dog();
-	void		makeSound(void) const;
-	void		setIdea(int index, std::string idea);
-	std::string	getIdea(int index) const;
-	Brain		*getBrain()	const;
-	Dog & operator=(const Dog &assign);
-private:
-	Brain	*_dogBrain;
+	WrongAnimal();
+	WrongAnimal(const WrongAnimal &copy);
+	WrongAnimal(std::string name);
+	virtual ~WrongAnimal();
+	WrongAnimal & operator=(const WrongAnimal &assign);
+	std::string getType() const;
+	void makeSound() const;
+protected:
+	std::string _type;
 };
 
 #endif
