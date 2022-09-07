@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 01:29:36 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/07 01:29:44 by tmoragli         ###   ########.fr       */
+/*   Updated: 2022/09/07 16:52:33 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,36 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include <exception>
+#include "Colors.hpp"
 
 class Bureaucrat
 {
 private:
-	std::string const	name;
-	int	grade;
+	class GradeTooHighException: public std::exception{
+		private:
+			virtual const char * what() const throw();
+	};
+	class GradeTooLowException: public std::exception{
+		private:
+			virtual const char * what() const throw();
+	};
+	std::string	const	_name;
+	int					_grade;
 public:
 	Bureaucrat();
-	Bureaucrat(std::string name);
+	Bureaucrat(std::string name, int grade);
 	Bureaucrat(Bureaucrat const& copy);
-	~Bureaucrat();
+	virtual ~Bureaucrat();
+
 	Bureaucrat const& operator=(Bureaucrat const& assign);
-	int	getGrade() const;
-	void	upGrade();
-	void	deGrade();
+	int			getGrade() const;
 	std::string	getName() const;
+	void	upGrade();
+	void	downGrade();
+	
 };
 
-std::ostream&	operator<<(std::ostream os, Bureaucrat const& a);
+std::ostream&	operator<<(std::ostream& os, Bureaucrat const& a);
 
 #endif
