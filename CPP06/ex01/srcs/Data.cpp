@@ -1,33 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Convert.hpp                                        :+:      :+:    :+:   */
+/*   Data.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 16:52:05 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/09 19:06:27 by tmoragli         ###   ########.fr       */
+/*   Created: 2022/09/09 19:08:57 by tmoragli          #+#    #+#             */
+/*   Updated: 2022/09/09 20:27:59 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONVERT_HPP
-#define CONVERT_HPP
+#include "Data.hpp"
 
-#include <iostream>
-#include <limits>
-#include <float.h>
-#include <stdlib.h>
-#include <cmath>
-#include <cerrno>
+Data::Data(): _nb(){
+	return ;
+}
 
+Data::Data(int const& nb)
+{
+	_nb = nb;
+	return ;
+}
 
-bool	isChar(std::string str);
-bool	isInt(std::string str);
-bool	isFloat(std::string str);
-bool	isDouble(std::string str);
-int		printChar(char nb);
-int		printInt(int nb);
-int		printFloat(float nb);
-int		printDouble(double nb);
+Data::Data(Data const& copy)
+{
+	_nb = copy.getNb();
+	return ;
+}
 
-#endif
+Data::~Data(){
+	return ;
+}
+
+Data&	Data::operator=(Data const& assign)
+{
+	_nb = assign.getNb();
+	return (*this);
+}
+
+int	Data::getNb() const{
+	return (_nb);
+}

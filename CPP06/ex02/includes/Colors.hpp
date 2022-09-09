@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Convert.hpp                                        :+:      :+:    :+:   */
+/*   Colors.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 16:52:05 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/09 19:06:27 by tmoragli         ###   ########.fr       */
+/*   Created: 2022/09/06 18:12:17 by tmoragli          #+#    #+#             */
+/*   Updated: 2022/09/09 16:50:00 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONVERT_HPP
-#define CONVERT_HPP
-
+#ifndef COLORS_HPP
+#define COLORS_HPP
 #include <iostream>
-#include <limits>
-#include <float.h>
-#include <stdlib.h>
-#include <cmath>
-#include <cerrno>
 
-
-bool	isChar(std::string str);
-bool	isInt(std::string str);
-bool	isFloat(std::string str);
-bool	isDouble(std::string str);
-int		printChar(char nb);
-int		printInt(int nb);
-int		printFloat(float nb);
-int		printDouble(double nb);
-
+#define BLACK "\e[1;30m"
+#define RED "\e[1;31m"
+#define GREEN "\e[1;32m"
+#define YELLOW "\e[1;33m"
+#define BLUE "\e[1;34m"
+#define MAGENTA "\e[1;35m"
+#define CYAN "\e[1;36m"
+#define WHITE "\e[1;37m"
+#define END "\e[0m"
 #endif
