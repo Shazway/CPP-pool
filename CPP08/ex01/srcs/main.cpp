@@ -6,12 +6,11 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 19:41:06 by tmoragli          #+#    #+#             */
-/*   Updated: 2022/09/11 21:51:11 by tmoragli         ###   ########.fr       */
+/*   Updated: 2022/09/12 16:08:52 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include "Colors.hpp"
 
 void	print_separator(void)
 {
@@ -23,7 +22,7 @@ void exceptionsTests()
 	Span n(100000);
 	Span small(2);
 
-	std::cout << RED << "Trying to find in empty span" << END << std::endl;
+	std::cout << YELLOW << "/!\\ Trying to find in empty span /!\\" << END << std::endl;
 	try
 	{
 		int longestSpan = n.longestSpan();
@@ -42,12 +41,13 @@ void exceptionsTests()
 	{
 		std::cerr << RED << e.what() << END << std::endl;
 	}
-	std::cout << RED << "Trying to add too many nb" << END << std::endl;
+	std::cout << YELLOW << "/!\\ Trying to add too many nb /!\\" << END << std::endl;
 	try
 	{
 		small.addNumber(42);
 		small.addNumber(42);
-		small.addNumber(42);
+		small.addNumber(42); // Comment this line to see next message
+		std::cout << MAGENTA << "----No errors occured----" << END << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -66,6 +66,7 @@ void basicTest()
 	test.push_back(424242);
 	test.push_back(42424242);
 	srand(time(0));
+	std::cout << GREEN << "Adding random numbers to vector" << END << std::endl;
 	for (int i = 0; i < 10; i++)
 	{
 		try
@@ -74,13 +75,29 @@ void basicTest()
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << '\n';
+			std::cerr <<  RED << e.what() << END << std::endl;;
 		}
 	}
 	n.addNumber(test.begin(), test.end());
 	n.printArray();
-	std::cout << GREEN << "Longest Span is " << n.longestSpan() << END << std::endl;
-	std::cout << GREEN << "Shortest Span is " << n.shortestSpan() << END << std::endl;
+	try
+	{
+		std::cout << GREEN << "Longest Span is " << n.longestSpan() << END << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr <<  RED << e.what() << END << std::endl;;
+	}
+	try
+	{
+		std::cout << GREEN << "Shortest Span is " << n.shortestSpan() << END << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr <<  RED << e.what() << END << std::endl;;
+	}
+	
+	
 }
 
 void SubjectTest()
@@ -92,8 +109,22 @@ void SubjectTest()
 	sp.addNumber(17);
 	sp.addNumber(9);
 	sp.addNumber(11);
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
+	try
+	{
+		std::cout << GREEN << "Longest Span is " << sp.longestSpan() << END << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr <<  RED << e.what() << END << std::endl;;
+	}
+	try
+	{
+		std::cout << GREEN << "Shortest Span is " << sp.shortestSpan() << END << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr <<  RED << e.what() << END << std::endl;;
+	}
 }
 
 int		main(void)

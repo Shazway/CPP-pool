@@ -7,7 +7,7 @@ SRC_PATH	=	srcs/
 OBJ_PATH	=	obj/
 INC	=	-Iincludes
 
-SRC_NAME	=	main.cpp Span.cpp Exceptions.cpp
+SRC_NAME	=	main.cpp Span.cpp
 OBJ_NAME	=	$(SRC_NAME:.cpp=.o)
 
 OBJ	=	$(addprefix $(OBJ_PATH), $(OBJ_NAME))
